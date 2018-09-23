@@ -8,8 +8,8 @@ import java.util.Arrays;
 public class Main {
 
     public static void main(String[] args) {
-        Student student1 = new Student("Alexey");
-        student1.addMarks(new int[] {1,1});
+        Student student1 = new Student("Markus");
+        student1.addMarks(new int[] {4,4});
         Student student2 = new Student("John");
         student2.addMarks(new int[] {2});
 
