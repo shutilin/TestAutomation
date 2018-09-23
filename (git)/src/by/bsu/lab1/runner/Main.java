@@ -12,7 +12,7 @@ public class Main {
         student1.addMarks(new int[] {4,4});
         Student student2 = new Student("Ralph");
         student2.addMarks(new int[] {2});
-        Student student3 = new Student("Joe");
+        Student student3 = new Student("Nelly");
         student2.addMarks(new int[] {5,2});
 
         Group group1 = new Group(Arrays.asList(student1, student2));
