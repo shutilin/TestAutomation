@@ -38,7 +38,7 @@ public class Student {
         if (mark >= 0 && mark <= 10) {
             this.marks.add(mark);
         } else {
-            throw new IllegalArgumentException("The mark should be in range: [0,10]");
+            throw new IllegalArgumentException("The mark must be in range: [0,10]");
         }
     }
 
