@@ -23,7 +23,7 @@ public class FlightsPageTest {
 
     @After
     public void afterTest() {
-       // webDriver.close();
+       webDriver.close();
     }
 
     /*

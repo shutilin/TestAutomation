@@ -72,7 +72,7 @@ public class FlightsPage {
 
         try{
             driver.findElement(cookiesAccept).click();
-        } catch (NoSuchElementException e) {
+        } catch (Exception e) {
             System.out.println("gdpr-cookie-accept was not found");
         }
 
