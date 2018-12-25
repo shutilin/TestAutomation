@@ -22,6 +22,7 @@ public class FlightsPage {
     }
 
     By loaderEnd = By.id("loader-end");
+    By flightCheckbox = By.xpath("/html/body/main/section[4]/div/div[4]/div[2]/div[3]/div[1]/div[2]/div[2]/div[1]");
     By selectFlightBtn = By.xpath("//button[contains(text(),'CONFIRM SELECTION ')]");
     By currencyPicklist = By.id("search-currency-change");
     By currencySuffix = By.className("result-fare-suffix");
@@ -44,6 +45,7 @@ public class FlightsPage {
     }
 
     public void selectFlight() {
+        driver.findElement(flightCheckbox).click();
         driver.findElement(selectFlightBtn).click();
     }
 
@@ -51,7 +53,7 @@ public class FlightsPage {
         Select currencySelector = new Select(driver.findElement(currencyPicklist));
         currencySelector.selectByVisibleText(currencyContext);
 
-        waitLoadEnd();
+        //waitLoadEnd();
         return driver.findElement(currencySuffix).getText();
     }
 
@@ -65,7 +67,11 @@ public class FlightsPage {
     }
 
     public void acceptCookies() {
-        driver.findElement(cookiesAccept).click();
+
+        if (driver.findElement(cookiesAccept).isDisplayed()) {
+            driver.findElement(cookiesAccept).click();
+        }
+
     }
 
     public String getCurrentUrl() {
