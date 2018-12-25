@@ -1,12 +1,26 @@
 package by.bsu.shutilin;
 
+import by.bsu.shutilin.driver.DriverProvider;
+import org.junit.After;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.PageFactory;
 
 public class AppTest {
+
+    private HomePageForm homePageForm;
+
+    @Before
+    public void setup() {
+        homePageForm = new HomePageForm(DriverProvider.getDriver());
+        homePageForm.openPage();
+    }
+
+    @After
+    public void closeDriver() {
+        DriverProvider.closeDriver();
+    }
+
 
     /*
         TESTCASE: Check for selecting same airports for from/to fields
@@ -14,10 +28,7 @@ public class AppTest {
      */
     @Test
     public void catchAlertMessageAfterSelectingSameAirports() {
-        WebDriver webDriver = new FirefoxDriver();
-        webDriver.get("https://www.alternativeairlines.com/");
 
-        HomePageForm homePageForm = PageFactory.initElements(webDriver, HomePageForm.class);
         homePageForm.populateArrivalInput("Moscow Domodedovo");
         homePageForm.populateDepartureInput("Moscow Domodedovo");
         homePageForm.submitForm();
