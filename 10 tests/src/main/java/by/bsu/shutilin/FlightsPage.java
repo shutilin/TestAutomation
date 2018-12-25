@@ -2,6 +2,7 @@ package by.bsu.shutilin;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -68,8 +69,10 @@ public class FlightsPage {
 
     public void acceptCookies() {
 
-        if (driver.findElement(cookiesAccept).isDisplayed()) {
+        try{
             driver.findElement(cookiesAccept).click();
+        } catch (NoSuchElementException e) {
+            System.out.println("gdpr-cookie-accept was not found");
         }
 
     }
